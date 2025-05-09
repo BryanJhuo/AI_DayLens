@@ -3,3 +3,12 @@
 
 - 聯絡資訊： bryan86874928@gmail.com 卓柏辰
 > 此 App 中，有使用到 OpenRouter 的 API_Key，如需 Demo 還需準備一個 OpenRouter 的 API_Key。若有需求，可以聯絡我，我可以給您一個測試的 API_Key。
+
+
+## Demo 畫面
+
+### MainView - 主畫面
+<img src="./assets/images/MainView.png" height="500" width="225">
+
+### HistoryView - 歷史紀錄
+<img src="./assets/images/historyView.png" height="500" width="225">
