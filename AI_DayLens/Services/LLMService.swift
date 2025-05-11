@@ -1,7 +1,7 @@
 import Foundation
 
 class LLMService {
-    private let apiKey = "API-KEY" // Replace with your actual API key
+    private let apiKey = "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"
     private let endpoint = "https://openrouter.ai/api/v1/chat/completions"
     
     func analyzeEmotion(input: String, model: String) async throws -> EmotionAnalysisResult {

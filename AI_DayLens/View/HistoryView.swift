@@ -3,6 +3,10 @@ import SwiftData
 
 struct HistoryView: View {
     @Query(sort: \MoodEntry.date, order: .reverse) var moodHistory: [MoodEntry]
+    @ObservedObject var viewModel: MainViewModel
+
+    @State private var showDeleteAlert = false
+    @State private var entryToDelete: MoodEntry? = nil
 
     var body: some View {
         VStack(alignment:.leading) {
@@ -23,12 +27,33 @@ struct HistoryView: View {
                     LazyVStack(spacing: 16) {
                         ForEach(moodHistory) { entry in 
                             MoodCard(entry: entry)
+                                .contextMenu {
+                                    Button(role: .destructive) {
+                                        entryToDelete = entry
+                                        showDeleteAlert = true
+                                    } label: {
+                                        Label("刪除這筆紀錄", systemImage: "trash")
+                                    }
+                                }
                         }
                     }
                     .padding(.horizontal)
                     .padding(.top)
                 }
             }
+        }
+        .alert("確定要刪除這筆紀錄嗎？", isPresented: $showDeleteAlert) {
+            Button("刪除", role: .destructive) {
+                if let entry = entryToDelete {
+                    viewModel.deleteEntry(entry)
+                }
+                entryToDelete = nil
+            }
+            Button("取消", role: .cancel) {
+                entryToDelete = nil
+            }
+        } message: {
+            Text("刪除後無法復原，請確認是否要刪除這一天的紀錄嗎？")
         }
     }
 }
@@ -55,7 +80,7 @@ struct MoodCard: View {
             Spacer()
         }
         .padding()
-        .frame(width: 240, height: 180)
+        .frame(width: 380, height: 180)
         .background(Color.blue.opacity(0.1))
         .cornerRadius(12)
         .shadow(radius: 2)

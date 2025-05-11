@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 import SwiftData
+import WidgetKit
 
 class MainViewModel: ObservableObject {
     @Published var userInput : String = ""
@@ -107,6 +108,7 @@ class MainViewModel: ObservableObject {
         }  catch {
             print("Failed to fetch existing entry: \(error)")
         }
+        WidgetCenter.shared.reloadTimelines(ofKind: "AI_DayLensWidget")
     }
 
     func confirmOverwrite() {
@@ -158,5 +160,50 @@ class MainViewModel: ObservableObject {
         default:
             return "🤔"
         }
+    }
+
+    func deleteEntry(_ entry: MoodEntry) {
+        guard let modelContext else {
+            print("❌ modelContext is nil")
+            return
+        }
+
+        modelContext.delete(entry)
+        do {
+            try modelContext.save()
+            print("✅ Entry deleted: \(entry.date)")
+        } catch {
+            print("❌ Failed to delete entry: \(error)")
+        }
+    }
+
+    func deleteAllEntries() {
+        guard let modelContext else {
+            print("❌ modelContext is nil, cannot delete.")
+            return
+        }
+
+        let descriptor = FetchDescriptor<MoodEntry>()
+        do {
+            let entries = try modelContext.fetch(descriptor)
+            for entry in entries {
+                modelContext.delete(entry)
+            }
+            try modelContext.save()
+            print("✅ All entries deleted successfully.")
+        } catch {
+            print("Failed to delete entries: \(error)")
+        }
+    }
+}
+
+func emojiForEmotionText(_ emotion: String) -> String {
+    switch emotion {
+    case "快樂": return "😄"
+    case "悲傷": return "😢"
+    case "焦慮": return "😰"
+    case "放鬆": return "🧘"
+    case "中性": return "😐"
+    default: return "🤔"
     }
 }

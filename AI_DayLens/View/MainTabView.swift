@@ -11,7 +11,7 @@ struct MainTabView: View {
                     Text("首頁")
                 }
 
-            HistoryView()
+            TrendPagerView(viewModel: viewModel)
                 .tabItem {
                     Image(systemName: "clock")
                     Text("歷史紀錄")

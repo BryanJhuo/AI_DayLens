@@ -10,10 +10,21 @@ import SwiftData
 
 @main
 struct AI_DayLensApp: App {
+    var sharedModelContainer: ModelContainer = {
+            let schema = Schema([MoodEntry.self])
+            let configuration = ModelConfiguration(
+                schema: schema,
+                url: FileManager.default
+                    .containerURL(forSecurityApplicationGroupIdentifier: "group.com.bryanjhuo.AIDayLens")!
+                    .appendingPathComponent("daylens.sqlite")
+            )
+            return try! ModelContainer(for: schema, configurations: [configuration])
+    }()
+    
     var body: some Scene {
         WindowGroup {
             MainTabView()
         }
-        .modelContainer(for: MoodEntry.self)
+        .modelContainer(sharedModelContainer) // ← 指定 app group
     }
 }

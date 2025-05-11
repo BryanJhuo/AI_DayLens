@@ -6,40 +6,152 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		EE2CE2422DCFBBE400D8F7DC /* AI_DayLensWidgetExtensionExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = EE2CE22E2DCFBBE100D8F7DC /* AI_DayLensWidgetExtensionExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		EE2CE2662DD0959100D8F7DC /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE2CE2562DD0934700D8F7DC /* Charts.framework */; };
+		EE2CE2692DD0959500D8F7DC /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE2CE2562DD0934700D8F7DC /* Charts.framework */; };
+		EE2CE26C2DD0959700D8F7DC /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE2CE2322DCFBBE100D8F7DC /* SwiftUI.framework */; };
+		EE2CE26E2DD0959800D8F7DC /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE2CE2302DCFBBE100D8F7DC /* WidgetKit.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		EE2CE2402DCFBBE400D8F7DC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EEF1D5272DB1D47A003BBDC3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EE2CE22D2DCFBBE100D8F7DC;
+			remoteInfo = AI_DayLensWidgetExtensionExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		EE2CE2472DCFBBE400D8F7DC /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				EE2CE2422DCFBBE400D8F7DC /* AI_DayLensWidgetExtensionExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		EE2CE22E2DCFBBE100D8F7DC /* AI_DayLensWidgetExtensionExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = AI_DayLensWidgetExtensionExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		EE2CE2302DCFBBE100D8F7DC /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		EE2CE2322DCFBBE100D8F7DC /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		EE2CE24F2DCFC3A300D8F7DC /* AI_DayLensWidgetExtensionExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AI_DayLensWidgetExtensionExtension.entitlements; sourceTree = "<group>"; };
+		EE2CE2562DD0934700D8F7DC /* Charts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Charts.framework; path = System/Library/Frameworks/Charts.framework; sourceTree = SDKROOT; };
 		EEAA1A882DB8C3A30040A803 /* AI_DayLens.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AI_DayLens.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		EE2CE2432DCFBBE400D8F7DC /* Exceptions for "AI_DayLensWidgetExtension" folder in "AI_DayLensWidgetExtensionExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = EE2CE22D2DCFBBE100D8F7DC /* AI_DayLensWidgetExtensionExtension */;
+		};
+		EE2CE24D2DCFBFDA00D8F7DC /* Exceptions for "AI_DayLens" folder in "AI_DayLensWidgetExtensionExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Model/MoodEntry.swift,
+			);
+			target = EE2CE22D2DCFBBE100D8F7DC /* AI_DayLensWidgetExtensionExtension */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		EE2CE2342DCFBBE100D8F7DC /* AI_DayLensWidgetExtension */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				EE2CE2432DCFBBE400D8F7DC /* Exceptions for "AI_DayLensWidgetExtension" folder in "AI_DayLensWidgetExtensionExtension" target */,
+			);
+			path = AI_DayLensWidgetExtension;
+			sourceTree = "<group>";
+		};
 		EEF1D5312DB1D47A003BBDC3 /* AI_DayLens */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				EE2CE24D2DCFBFDA00D8F7DC /* Exceptions for "AI_DayLens" folder in "AI_DayLensWidgetExtensionExtension" target */,
+			);
 			path = AI_DayLens;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		EE2CE22B2DCFBBE100D8F7DC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EE2CE2692DD0959500D8F7DC /* Charts.framework in Frameworks */,
+				EE2CE26C2DD0959700D8F7DC /* SwiftUI.framework in Frameworks */,
+				EE2CE26E2DD0959800D8F7DC /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		EEF1D52C2DB1D47A003BBDC3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE2CE2662DD0959100D8F7DC /* Charts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EE2CE22F2DCFBBE100D8F7DC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EE2CE2562DD0934700D8F7DC /* Charts.framework */,
+				EE2CE2302DCFBBE100D8F7DC /* WidgetKit.framework */,
+				EE2CE2322DCFBBE100D8F7DC /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		EEF1D5262DB1D47A003BBDC3 = {
 			isa = PBXGroup;
 			children = (
+				EE2CE24F2DCFC3A300D8F7DC /* AI_DayLensWidgetExtensionExtension.entitlements */,
 				EEF1D5312DB1D47A003BBDC3 /* AI_DayLens */,
 				EEAA1A882DB8C3A30040A803 /* AI_DayLens.app */,
+				EE2CE22E2DCFBBE100D8F7DC /* AI_DayLensWidgetExtensionExtension.appex */,
+				EE2CE2342DCFBBE100D8F7DC /* AI_DayLensWidgetExtension */,
+				EE2CE22F2DCFBBE100D8F7DC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		EE2CE22D2DCFBBE100D8F7DC /* AI_DayLensWidgetExtensionExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EE2CE2442DCFBBE400D8F7DC /* Build configuration list for PBXNativeTarget "AI_DayLensWidgetExtensionExtension" */;
+			buildPhases = (
+				EE2CE22A2DCFBBE100D8F7DC /* Sources */,
+				EE2CE22B2DCFBBE100D8F7DC /* Frameworks */,
+				EE2CE22C2DCFBBE100D8F7DC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				EE2CE2342DCFBBE100D8F7DC /* AI_DayLensWidgetExtension */,
+			);
+			name = AI_DayLensWidgetExtensionExtension;
+			packageProductDependencies = (
+			);
+			productName = AI_DayLensWidgetExtensionExtension;
+			productReference = EE2CE22E2DCFBBE100D8F7DC /* AI_DayLensWidgetExtensionExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		EEF1D52E2DB1D47A003BBDC3 /* AI_DayLens */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = EEF1D53D2DB1D47C003BBDC3 /* Build configuration list for PBXNativeTarget "AI_DayLens" */;
@@ -47,10 +159,12 @@
 				EEF1D52B2DB1D47A003BBDC3 /* Sources */,
 				EEF1D52C2DB1D47A003BBDC3 /* Frameworks */,
 				EEF1D52D2DB1D47A003BBDC3 /* Resources */,
+				EE2CE2472DCFBBE400D8F7DC /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				EE2CE2412DCFBBE400D8F7DC /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				EEF1D5312DB1D47A003BBDC3 /* AI_DayLens */,
@@ -72,6 +186,9 @@
 				LastSwiftUpdateCheck = 1620;
 				LastUpgradeCheck = 1620;
 				TargetAttributes = {
+					EE2CE22D2DCFBBE100D8F7DC = {
+						CreatedOnToolsVersion = 16.2;
+					};
 					EEF1D52E2DB1D47A003BBDC3 = {
 						CreatedOnToolsVersion = 16.2;
 					};
@@ -92,11 +209,19 @@
 			projectRoot = "";
 			targets = (
 				EEF1D52E2DB1D47A003BBDC3 /* AI_DayLens */,
+				EE2CE22D2DCFBBE100D8F7DC /* AI_DayLensWidgetExtensionExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		EE2CE22C2DCFBBE100D8F7DC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		EEF1D52D2DB1D47A003BBDC3 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -107,6 +232,13 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		EE2CE22A2DCFBBE100D8F7DC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		EEF1D52B2DB1D47A003BBDC3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -116,7 +248,71 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		EE2CE2412DCFBBE400D8F7DC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EE2CE22D2DCFBBE100D8F7DC /* AI_DayLensWidgetExtensionExtension */;
+			targetProxy = EE2CE2402DCFBBE400D8F7DC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		EE2CE2452DCFBBE400D8F7DC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = AI_DayLensWidgetExtensionExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = MP4Y7TD5S3;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = AI_DayLensWidgetExtension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = AI_DayLensWidgetExtension;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "BryanJhuo.AI-DayLens.AI-DayLensWidgetExtension";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		EE2CE2462DCFBBE400D8F7DC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = AI_DayLensWidgetExtensionExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = MP4Y7TD5S3;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = AI_DayLensWidgetExtension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = AI_DayLensWidgetExtension;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "BryanJhuo.AI-DayLens.AI-DayLensWidgetExtension";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		EEF1D53B2DB1D47C003BBDC3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -241,6 +437,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = AI_DayLens/AI_DayLens.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"AI_DayLens/Preview Content\"";
@@ -270,6 +467,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = AI_DayLens/AI_DayLens.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"AI_DayLens/Preview Content\"";
@@ -297,6 +495,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		EE2CE2442DCFBBE400D8F7DC /* Build configuration list for PBXNativeTarget "AI_DayLensWidgetExtensionExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EE2CE2452DCFBBE400D8F7DC /* Debug */,
+				EE2CE2462DCFBBE400D8F7DC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		EEF1D52A2DB1D47A003BBDC3 /* Build configuration list for PBXProject "AI_DayLens" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
