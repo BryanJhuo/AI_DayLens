@@ -10,7 +10,7 @@ enum LLMModel: String, CaseIterable {
         switch self {
         case .deepseekV3: return "DeepSeek V3"
         case .gemini: return "Gemini 2.0"
-        case .llama: return "Llama 3"
+        case .llama: return "Llama 4"
         }
     }
 }
@@ -35,7 +35,7 @@ struct MainView: View {
 
                     Spacer()
                     
-                    Text("\(viewModel.weatherIcon) \(viewModel.temperature)")
+                    Text("\(viewModel.temperature)")
                         .font(.subheadline)
                         .foregroundColor(.gray)
                 }

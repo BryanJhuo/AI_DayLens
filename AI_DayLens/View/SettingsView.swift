@@ -5,6 +5,7 @@ struct SettingsView: View {
     @ObservedObject var viewModel: MainViewModel
     @Environment(\.modelContext) private var modelContext
     @State private var showDeleteAlert = false
+    @AppStorage("selectedTheme") private var selectedTheme = "light"
 
     var body: some View {
         NavigationView {
@@ -16,6 +17,15 @@ struct SettingsView: View {
                         Text("🗑 清除所有心情紀錄")
                     }
                 }
+
+                Section(header: Text("主題")) {
+                    Picker("外觀主題", selection: $selectedTheme) {
+                        Text("☀️ 淺色").tag("light")
+                        Text("🌙 深色").tag("dark")
+                    }
+                    .pickerStyle(.segmented)
+                }
+
             }
             .navigationTitle("設定")
             .onAppear {

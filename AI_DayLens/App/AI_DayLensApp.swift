@@ -10,6 +10,8 @@ import SwiftData
 
 @main
 struct AI_DayLensApp: App {
+    @AppStorage("selectedTheme") var selectedTheme: String = "light"
+
     var sharedModelContainer: ModelContainer = {
             let schema = Schema([MoodEntry.self])
             let configuration = ModelConfiguration(
@@ -24,6 +26,7 @@ struct AI_DayLensApp: App {
     var body: some Scene {
         WindowGroup {
             MainTabView()
+                .preferredColorScheme(selectedTheme == "light" ? .light : .dark)
         }
         .modelContainer(sharedModelContainer) // ← 指定 app group
     }

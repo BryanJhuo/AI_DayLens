@@ -11,14 +11,14 @@ import SwiftData
 import WidgetKit
 
 class MainViewModel: ObservableObject {
+    @AppStorage("selectedTheme") var selectedTheme: String = "light"
     @Published var userInput : String = ""
     @Published var emotion : String? = nil
     @Published var message : String? = nil
     @Published var isLoading : Bool = false
     @Published var selectedModel : String = LLMModel.deepseekV3.rawValue
     @Published var selectedDate: Date = Date()
-    @Published var weatherIcon: String = "☀️"
-    @Published var temperature: String = "25°C"
+    @Published var temperature: String = "讀取中..."
 
     @Published var showOverwriteAlert: Bool = false
     var modelContext: ModelContext?
@@ -32,8 +32,6 @@ class MainViewModel: ObservableObject {
         formatter.dateFormat = "yyyy/MM/dd"
         return formatter.string(from: selectedDate)
     }
-
-    init() {}
 
     func getTodayString() -> String {
         let formatter = DateFormatter()

@@ -7,6 +7,8 @@ struct HistoryView: View {
 
     @State private var showDeleteAlert = false
     @State private var entryToDelete: MoodEntry? = nil
+    @State private var showDetailSheet = false
+    @State private var detailEntry: MoodEntry? = nil
 
     var body: some View {
         VStack(alignment:.leading) {
@@ -34,6 +36,13 @@ struct HistoryView: View {
                                     } label: {
                                         Label("刪除這筆紀錄", systemImage: "trash")
                                     }
+
+                                    Button {
+                                        detailEntry = entry
+                                        showDetailSheet = true
+                                    } label: {
+                                        Label("詳細完整內容", systemImage: "doc.text.magnifyingglass")
+                                    }
                                 }
                         }
                     }
@@ -55,11 +64,17 @@ struct HistoryView: View {
         } message: {
             Text("刪除後無法復原，請確認是否要刪除這一天的紀錄嗎？")
         }
+        .sheet(isPresented: $showDetailSheet) {
+            if let entry = detailEntry {
+                MoodDetailView(entry: entry)
+            }
+        }
     }
 }
 
 struct MoodCard: View {
     let entry: MoodEntry
+    @Environment(\.colorScheme) var colorScheme
 
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
@@ -81,7 +96,11 @@ struct MoodCard: View {
         }
         .padding()
         .frame(width: 380, height: 180)
-        .background(Color.blue.opacity(0.1))
+        .background(
+            colorScheme == .dark ?
+                Color.white.opacity(0.1) :
+                Color.blue.opacity(0.1)
+        )
         .cornerRadius(12)
         .shadow(radius: 2)
     }
