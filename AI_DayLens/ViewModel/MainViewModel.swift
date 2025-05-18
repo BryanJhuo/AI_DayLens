@@ -18,7 +18,7 @@ class MainViewModel: ObservableObject {
     @Published var isLoading : Bool = false
     @Published var selectedModel : String = LLMModel.deepseekV3.rawValue
     @Published var selectedDate: Date = Date()
-    @Published var temperature: String = "讀取中..."
+    @Published var temperature: String = "☀️25°C"
 
     @Published var showOverwriteAlert: Bool = false
     var modelContext: ModelContext?

@@ -11,4 +11,17 @@
 <img src="./assets/images/MainView.png" height="500" width="225">
 
 ### HistoryView - 歷史紀錄
-<img src="./assets/images/historyView.png" height="500" width="225">
+<img src="./assets/images/HistoryView.png" height="500" width="225">
+
+### TrendChartView - 情緒趨勢圖
+<img src="./assets/images/TrendChartView.png" height="500" width="225">
+
+### SettingView - 設定
+<img src="./assets/images/SettingView.png" height="500" width="225">
+
+### Widget
+**Small**  
+<img src="./assets/images/smallWidget.png" height="225" width="225">
+
+**Medium**  
+<img src="./assets/images/mediumWidget.png" height="225" width="300">
