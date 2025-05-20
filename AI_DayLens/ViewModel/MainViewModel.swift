@@ -16,7 +16,7 @@ class MainViewModel: ObservableObject {
     @Published var emotion : String? = nil
     @Published var message : String? = nil
     @Published var isLoading : Bool = false
-    @Published var selectedModel : String = LLMModel.deepseekV3.rawValue
+    @Published var selectedModel : String = LLMModel.llama.rawValue
     @Published var selectedDate: Date = Date()
     @Published var temperature: String = "☀️25°C"
 

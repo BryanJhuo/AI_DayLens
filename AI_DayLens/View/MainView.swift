@@ -3,15 +3,21 @@ import SwiftData
 
 enum LLMModel: String, CaseIterable {
     case deepseekV3 = "deepseek/deepseek-v3-base:free"
-    case gemini = "google/gemini-2.0-flash-exp:free"
+    //case gemini = "google/gemini-2.0-flash-exp:free"
     case llama = "meta-llama/llama-4-maverick:free"
 
     var displayName: String {
         switch self {
         case .deepseekV3: return "DeepSeek V3"
-        case .gemini: return "Gemini 2.0"
+        //case .gemini: return "Gemini 2.0"
         case .llama: return "Llama 4"
         }
+    }
+}
+
+extension UIApplication {
+    func endEditing() {
+        sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }
 }
 
@@ -21,129 +27,137 @@ struct MainView: View {
 
     var body: some View {
         NavigationView {
-            VStack (alignment: .leading, spacing: 20) {
-                // Header
-                Text("AI DayLens ☀️")
-                    .font(.largeTitle)
-                    .fontWeight(.bold)
+            ZStack{
+                Color.clear
+                    .contentShape(Rectangle())
+                    .onTapGesture {
+                        UIApplication.shared.endEditing()
+                    }
                 
-                // Date & Weather
-                HStack {
-                    DatePicker("", selection: $viewModel.selectedDate, displayedComponents: .date)
-                        .datePickerStyle(.compact)
-                        .labelsHidden()
-
-                    Spacer()
+                VStack (alignment: .leading, spacing: 20) {
+                    // Header
+                    Text("AI DayLens ☀️")
+                        .font(.largeTitle)
+                        .fontWeight(.bold)
                     
-                    Text("\(viewModel.temperature)")
-                        .font(.subheadline)
-                        .foregroundColor(.gray)
-                }
-                .padding(.horizontal)
-                .padding(.top, 5)
-
-                // Prompt
-                Text("💬 今天過得怎麼樣？")
-                    .font(.headline)
-
-                // User Input area
-                TextEditor(text: $viewModel.userInput)
-                    .frame(height: 120)
-                    .padding(10)
-                    .background(Color(.systemGray6))
-                    .cornerRadius(12)
-
-                // Model Selection
-                HStack{
-                    Spacer()
-                    HStack(spacing: 12) {
-                        ForEach(LLMModel.allCases, id: \.self) { model in 
-                            Button(action: {
-                                viewModel.selectedModel = model.rawValue                        
-                            }) {
-                                Text(model.displayName)
-                                    .padding(8)
-                                    .background(viewModel.selectedModel == model.rawValue ? Color.blue : Color.gray.opacity(0.3))
-                                    .foregroundColor(.white)
-                                    .cornerRadius(8)
-                            }
-                        }
-                    }
-                    Spacer()
-                }
-                // .padding(.vertical)
-
-                // Mic Button (not yet functional)
-                HStack {
-                    Spacer()
-                    Button(action: {
-                        // speech-to-text action placeholder
-                    }) {
-                        Image(systemName: "mic.fill")
-                            .font(.title)
-                            .padding()
-                            .background(Color.blue)
-                            .foregroundColor(.white)
-                            .clipShape(Circle())
-                    }
-
-                    Button(action: {
-                        viewModel.analyzeInput()
-                    }) {
-                        Text("分析")
-                            .padding(.horizontal, 16)
-                            .padding(.vertical, 10)
-                            .background(Color.green)
-                            .foregroundColor(.white)
-                            .cornerRadius(12)
-                    }
-                    Spacer()
-                }
-
-                // AI analysis result
-                if viewModel.isLoading {
-                    ProgressView("分析中...")
-                        .progressViewStyle(CircularProgressViewStyle())
-                        .padding()
-                } else if let emotion = viewModel.emotion, let message = viewModel.message {
-                    VStack(alignment: .leading, spacing: 5) {
-                        Text("\(viewModel.emojiForEmotion())\(emotion)")
-                            .font(.title)
-                        Text("✨ \(message)")
-                            .font(.body)
+                    // Date & Weather
+                    HStack {
+                        DatePicker("", selection: $viewModel.selectedDate, displayedComponents: .date)
+                            .datePickerStyle(.compact)
+                            .labelsHidden()
+                        
+                        Spacer()
+                        
+                        Text("\(viewModel.temperature)")
+                            .font(.subheadline)
                             .foregroundColor(.gray)
                     }
-                }
-
-                Spacer()
-
-                // Save Button
-                Button(action: {
-                    viewModel.saveTodayEntry()
-                }) {
-                    Text("紀錄今天")
-                        .frame(maxWidth: .infinity)
-                        .padding(.vertical, 8)
-                        .background(Color.blue)
-                        .foregroundColor(.white)
+                    .padding(.horizontal)
+                    .padding(.top, 5)
+                    
+                    // Prompt
+                    Text("💬 今天過得怎麼樣？")
+                        .font(.headline)
+                    
+                    // User Input area
+                    TextEditor(text: $viewModel.userInput)
+                        .frame(height: 120)
+                        .padding(10)
+                        .background(Color(.systemGray6))
                         .cornerRadius(12)
-                        .padding(.horizontal)
+                    
+                    // Model Selection
+                    HStack{
+                        Spacer()
+                        HStack(spacing: 12) {
+                            ForEach(LLMModel.allCases, id: \.self) { model in
+                                Button(action: {
+                                    viewModel.selectedModel = model.rawValue
+                                }) {
+                                    Text(model.displayName)
+                                        .padding(8)
+                                        .background(viewModel.selectedModel == model.rawValue ? Color.blue : Color.gray.opacity(0.3))
+                                        .foregroundColor(.white)
+                                        .cornerRadius(8)
+                                }
+                            }
+                        }
+                        Spacer()
+                    }
+                    // .padding(.vertical)
+                    
+                    // Mic Button (not yet functional)
+                    HStack {
+                        Spacer()
+                        Button(action: {
+                            // speech-to-text action placeholder
+                        }) {
+                            Image(systemName: "mic.fill")
+                                .font(.title)
+                                .padding()
+                                .background(Color.blue)
+                                .foregroundColor(.white)
+                                .clipShape(Circle())
+                        }
+                        
+                        Button(action: {
+                            viewModel.analyzeInput()
+                        }) {
+                            Text("分析")
+                                .padding(.horizontal, 16)
+                                .padding(.vertical, 10)
+                                .background(Color.green)
+                                .foregroundColor(.white)
+                                .cornerRadius(12)
+                        }
+                        Spacer()
+                    }
+                    
+                    // AI analysis result
+                    if viewModel.isLoading {
+                        ProgressView("分析中...")
+                            .progressViewStyle(CircularProgressViewStyle())
+                            .padding()
+                    } else if let emotion = viewModel.emotion, let message = viewModel.message {
+                        VStack(alignment: .leading, spacing: 5) {
+                            Text("\(viewModel.emojiForEmotion())\(emotion)")
+                                .font(.title)
+                            Text("✨ \(message)")
+                                .font(.body)
+                                .foregroundColor(.gray)
+                        }
+                    }
+                    
+                    Spacer()
+                    
+                    // Save Button
+                    Button(action: {
+                        viewModel.saveTodayEntry()
+                    }) {
+                        Text("紀錄今天")
+                            .frame(maxWidth: .infinity)
+                            .padding(.vertical, 8)
+                            .background(Color.blue)
+                            .foregroundColor(.white)
+                            .cornerRadius(12)
+                            .padding(.horizontal)
+                    }
+                    .padding(.bottom, 10)
+                    .alert(isPresented: $viewModel.showOverwriteAlert) {
+                        Alert(
+                            title: Text("今天已經有紀錄了"),
+                            message: Text("是否要覆蓋今天的紀錄？"),
+                            primaryButton: .default(Text("覆蓋")) {
+                                viewModel.confirmOverwrite()
+                            },
+                            secondaryButton: .cancel()
+                        )
+                    }
                 }
-                .padding(.bottom, 10)
-                .alert(isPresented: $viewModel.showOverwriteAlert) {
-                    Alert(
-                        title: Text("今天已經有紀錄了"), 
-                        message: Text("是否要覆蓋今天的紀錄？"),
-                        primaryButton: .default(Text("覆蓋")) {
-                            viewModel.confirmOverwrite()
-                        },
-                        secondaryButton: .cancel()
-                    )
-                }
+                .padding()
+                .navigationTitle("")
+                .navigationBarHidden(true)
             }
-            .padding()
-            .navigationTitle("")
-            .navigationBarHidden(true)
         }
         .onAppear {
             viewModel.modelContext = modelContext
